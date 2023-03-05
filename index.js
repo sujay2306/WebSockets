@@ -1,28 +1,32 @@
-const http = require("http")
+const http = require("http");
 const WebSocketServer = require("websocket").server
-let connection = null
+let connection = null;
 
-//spin up a http server
-const httpserver = http.createServer((req, res) => {
-    console.log("we have received a request");
-})
+//create a raw http server (this will help us create the TCP which will then pass to the websocket to do the job)
+const httpserver = http.createServer((req, res) => 
+                console.log("we have received a request"))
 
-//create websocket
+ //pass the httpserver object to the WebSocketServer library to do all the job, this class will override the req/res 
 const websocket = new WebSocketServer({
-    httpServer:httpserver //we are sending out http server listening on 8080
-})
-websocket.on("request", request=>{
-    //accept the request of client
-   connection = request.accept(null, request.origin)
-   connection.on("onopen", () => console.log("Opened!!!"))
-   connection.on("onclose"), () => console.log("Closed!!!")
-   connection.on("onmessage", message => {
-            console.log(`Rrecived message ${message}`);
-   })
-
+    "httpServer": httpserver
 })
 
-httpserver.listen(80, () => {
-    console.log("My server is listening on port 8080");
-})
 
+httpserver.listen(8080, () => console.log("My server is listening on port 8080"))
+
+
+//when a legit websocket request comes listen to it and get the connection .. once you get a connection thats it! 
+websocket.on("request", request=> {
+
+    connection = request.accept(null, request.origin)
+    connection.on("open", () => console.log("Opened!!!"))
+    connection.on("close", () => console.log("CLOSED!!!"))
+    connection.on("message", message => {
+
+        console.log(`Received message ${message.utf8Data}`)
+        connection.send(`got your message: ${message.utf8Data}`)
+    })
+    
+
+})
+ 
