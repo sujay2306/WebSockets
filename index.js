@@ -2,6 +2,7 @@ const http = require("http");
 const WebSocketServer = require("websocket").server
 let connection = null;
 
+
 //create a raw http server (this will help us create the TCP which will then pass to the websocket to do the job)
 const httpserver = http.createServer((req, res) => 
                 console.log("we have received a request"))
