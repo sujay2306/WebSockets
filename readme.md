@@ -12,9 +12,8 @@ Client:
 <br>
 <img src='assets/client.png'/>
 <br>
-Server:
-
 <br>
+Server:
 <img src='assets/server.png'/>
 
 ## How WebSocket works
