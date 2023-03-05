@@ -9,9 +9,11 @@ WebSockets technology is a bidirectional, full-duplex protocol for communication
 
 ## Usage
 Client:
+<br>
 <img src='assets/client.png'/>
-
-Server
+<br>
+Server:
+<br>
 <img src='assets/server.png'/>
 
 ## How WebSocket works
