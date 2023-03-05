@@ -26,7 +26,25 @@ websocket.on("request", request=> {
         console.log(`Received message ${message.utf8Data}`)
         connection.send(`got your message: ${message.utf8Data}`)
     })
+
+
+    //use connection.send to send stuff to the client 
+    sendevery5seconds();
     
 
 })
  
+function sendevery5seconds(){
+
+    connection.send(`Message ${Math.random()}`);
+
+    setTimeout(sendevery5seconds, 5000);
+
+
+}
+
+
+//client code 
+//let ws = new WebSocket("ws://localhost:8080");
+//ws.onmessage = message => console.log(`Received: ${message.data}`);
+//ws.send("Hello! I'm client")
