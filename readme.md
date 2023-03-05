@@ -15,7 +15,7 @@ Server
 <img src='assets/server.png'/>
 
 ## How WebSocket works
-<img src='assets/working.png'/>
+<img src='assets/working1.png'/>
 
 ## License
 
