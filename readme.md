@@ -8,7 +8,10 @@ WebSockets technology is a bidirectional, full-duplex protocol for communication
 
 
 ## Usage
+Client:
 <img src='assets/client.png'/>
+
+Server
 <img src='assets/server.png'/>
 
 ## License
