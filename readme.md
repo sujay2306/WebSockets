@@ -14,6 +14,9 @@ Client:
 Server
 <img src='assets/server.png'/>
 
+## How WebSocket works
+<img src='assets/working.png'/>
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
